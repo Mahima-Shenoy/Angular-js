@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ShoppingListCheckOff">
+<head>
+  <meta charset="UTF-8">
+  <title>Solution: Assignment Module 2</title>
+
+</head>
+<body>
+  <div class="container">
+    <header class="row">
+      <div class="col-md-12">
+        <h1>Shopping List Check Off</h1>
+      </div>
+    </header>
+
+    <div class="row">
+      <div class="col-md-6">
+        <h2>To Buy:</h2>
+        <div ng-controller="ToBuyShoppingController as listToBuy">
+          <ol>
+            <div ng-show="listToBuy.items.length > 0">
+              <li ng-repeat="item in listToBuy.items;">
+                Buy {{ item.quantity }}  {{ item.name }}
+                <button class="btn btn-primary btn-xs" ng-click="listToBuy.checkOff($index);">BOUGHT</button><br>
+              <br></li>
+            </div>
+            <div ng-show="listToBuy.items.length == 0">
+              <p>Everything is bought!</p>
+            </div>
+          </ol>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div ng-controller="AlreadyBoughtShoppingController as listBought">
+          <h2>Already Bought:</h2>
+          <div ng-show="listBought.items.length > 0">
+            <ol>
+              <li ng-repeat="item in listBought.items;"> BOUGHT{{ item.quantity }} {{ item.name }}<br></li>
+            </ol>
+          </div>
+          <div ng-show="listBought.items.length == 0">
+            <p>Nothing bought yet!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
