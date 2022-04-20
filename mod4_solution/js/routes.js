@@ -4,8 +4,7 @@
   angular.module("MenuApp")
     .config(RoutesConfig);
 
-  RoutesConfig.$inject = ["$stateProvider", "$urlRouterProvider"];
-  RouterModule.forRoot(routes, { useHash: true })  
+  RoutesConfig.$inject = ["$stateProvider", "$urlRouterProvider"]; 
   function RoutesConfig($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/");
 
