@@ -6,7 +6,10 @@
 
   RoutesConfig.$inject = ["$stateProvider", "$urlRouterProvider"]; 
   function RoutesConfig($stateProvider, $urlRouterProvider) {
-    $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode({
+      enabled:true,
+      requireBase:false
+    });
     $urlRouterProvider.otherwise("/");
 
     $stateProvider
