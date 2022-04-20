@@ -5,6 +5,7 @@
     .config(RoutesConfig);
 
   RoutesConfig.$inject = ["$stateProvider", "$urlRouterProvider"];
+  RouterModule.forRoot(routes, { useHash: true })  
   function RoutesConfig($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/");
 
